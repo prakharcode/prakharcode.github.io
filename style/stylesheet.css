@@ -35,14 +35,9 @@ body{
  min-height: 100%;
   padding-top: 100px;
   overflow-x: hidden;
-  background-image: url("http://strategic-webdesign.com/wp-content/uploads/blurred-background-3.jpg");
+  background-image: url("http://cdn.theapplelounge.com/wp-content/uploads/2014/03/Background_geometrico_7.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-
-#bgvd{
-  display: none;
 }
 .svg-col{
   padding: 0px;
@@ -119,9 +114,6 @@ li{
 
 }
 @media (max-width:1000px) {
-  #bgvid{
-    display: none;
-  }
   .cl-effect-5{
 
     text-align-last: center;
@@ -131,7 +123,6 @@ li{
   margin-right: 30px;
 
 }
-
 }
 @media (min-width:1200px){
   .cl-effect-5 {
@@ -144,9 +135,6 @@ li{
     margin-left:30%;
     background-color:#FFC300;
   }
-
-
-
 }
 
 @media (min-width:700px){
@@ -156,22 +144,4 @@ li{
       background-color: rgba(0,0,0,0);
       border: 0px;
       text-decoration: underline;}
-
-      video#bgvid {
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          min-width: 100%;
-          min-height: 100%;
-          width: auto;
-          height: auto;
-          z-index: -100;
-          -ms-transform: translateX(-50%) translateY(-50%);
-          -moz-transform: translateX(-50%) translateY(-50%);
-          -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-          background-image: url(vbg.jpg) no-repeat;
-          background-size: cover;
-      }
-
 }
