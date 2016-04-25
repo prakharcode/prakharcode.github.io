@@ -1,0 +1,177 @@
+*{
+  font-family: Raleway;
+
+}
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+nav a {
+	position: relative;
+	display: inline-block;
+	margin: 15px 25px;
+	outline: none;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	font-size: 1.35em;
+
+}
+
+.navbar-nav>li>a:hover{
+
+  background-color:#FFC300;
+}
+html{
+  min-height: 100%;
+}
+body{
+ min-height: 100%;
+  padding-top: 100px;
+  overflow-x: hidden;
+  background-image: url("http://strategic-webdesign.com/wp-content/uploads/blurred-background-3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+#bgvd{
+  display: none;
+}
+.svg-col{
+  padding: 0px;
+}
+
+.feat
+{
+  background-color: #FFC300;
+}
+.text--line, .text--line2{
+  font-size: 150px;
+}
+.navbar-default{
+    padding-top: 0px;
+    background-color: rgba(0,0,0,0);
+    border: 0px;
+    text-decoration: underline;}
+
+
+.nav navbar-nav navbar-right li a,.nav navbar-nav navbar-left li a{
+  color:white;
+  text-decoration: underline;
+}
+
+li{
+  color: white:
+}
+
+.ac{
+  height:227px;
+  background-color: #016C0E;
+
+}
+
+
+.cl-effect-5 a {
+	overflow: hidden;
+	padding: 0 4px;
+	height: 30px;
+
+
+}
+
+
+.cl-effect-5 a span {
+	position: relative;
+	display: inline-block;
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.cl-effect-5 a span::before {
+	position: absolute;
+	top: 100%;
+	content: attr(data-hover);
+	font-weight: 700;
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+.cl-effect-5 a:hover span,
+.cl-effect-5 a:focus span {
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+@media (max-width:760px) {
+  #bs-example-navbar-collapse-1{
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+}
+@media (max-width:1000px) {
+  #bgvid{
+    display: none;
+  }
+  .cl-effect-5{
+
+    text-align-last: center;
+  }
+.cl-effect-5 a{
+  margin: 0px;
+  margin-right: 30px;
+
+}
+
+}
+@media (min-width:1200px){
+  .cl-effect-5 {
+    margin-left: 30%;
+    margin-right: -15px;
+  }
+}
+@media (min-width:440px){
+  .mm{
+    margin-left:30%;
+    background-color:#FFC300;
+  }
+
+
+
+}
+
+@media (min-width:700px){
+
+  .navbar-default{
+
+      background-color: rgba(0,0,0,0);
+      border: 0px;
+      text-decoration: underline;}
+
+      video#bgvid {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+          z-index: -100;
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+          background-image: url(vbg.jpg) no-repeat;
+          background-size: cover;
+      }
+
+}
