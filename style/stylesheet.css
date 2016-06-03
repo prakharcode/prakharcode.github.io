@@ -24,10 +24,7 @@ nav a {
 
 }
 
-.navbar-nav>li>a:hover{
 
-  background-color:#FFC300;
-}
 html{
   min-height: 100%;
 }
@@ -35,7 +32,7 @@ body{
  min-height: 100%;
   padding-top: 100px;
   overflow-x: hidden;
-  background-image: url("http://cdn.theapplelounge.com/wp-content/uploads/2014/03/Background_geometrico_7.jpg");
+  background-image: url(image/masterbg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
