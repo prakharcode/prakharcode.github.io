@@ -6,7 +6,7 @@ bio:   |
     Share my journey of putting sense into data and understanding bare bones of deep learning
 
 # twitter summary info
-description: A blog about technology and stuff related
+description: A webpage and blog to introduce AI to world
 
 # if it's an external image, update below for true
 # better with square images
@@ -19,7 +19,7 @@ resume: true
 resume-external: true
 resume-url: https://drive.google.com/open?id=0B260GDUD4zDlVVJVS05IVUlMTWM
 
-url: https://prakharcode.github.io/dlblog
+url: https://prakharcode.github.io
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
