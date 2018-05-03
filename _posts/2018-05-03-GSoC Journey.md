@@ -18,8 +18,8 @@ No, it's not easy but no, it's sure not impossible.
 
 
 ## Things you should know
-- What is GSoC? [Find more about GSoC here.](https://summerofcode.withgoogle.com/about/)
-- What is Open Source? [Find more about Open Source here.](https://www.techopedia.com/definition/3294/open-source)
+- [What is GSoC? ](https://summerofcode.withgoogle.com/about/)
+- [What is Open Source? ](https://www.techopedia.com/definition/3294/open-source)
 - This blog entails my journey, it might not be the same for you!
 
 ## Flashback
@@ -37,7 +37,7 @@ I learned a lot! A lot believe me! Well, it was fun so couldn't stop. I stepped 
 
 Before getting in full throttle for GSoC I was already exploring a powerful, yet new language, [Julia](https://julialang.org/), having a really awesome community and with really ambitious promises (which it delivers). After learning a bit about Julia from [David P. Sander's talk from SciPy'14](https://www.youtube.com/watch?v=vWkgEddb4-A), I absolutely fell in love with it. (Well, David did a great job at convincing me to learn Julia even further and so I did). After watching the talk, I took some time to get acquainted with this beast of a language. I'll be covering Julia and it's awesomeness in another post(__another post coming up soon__).
 
-Since GSoC was always somewhere in my mind as soon as January knocked on the doors of the calendar. I was already checking out previous year's organizations and the proposal, by then it was already clear to me that I'll be applying to a project with Julia as its principal programming language. I was so hooked on Julia that despite of being a python-ista I was looking for Julia projects!
+Since GSoC was always somewhere in my mind and as soon as January hit the calendar, I was already checking out previous year's organizations and the proposal, by then it was already clear to me that I'll be applying to a project with Julia as its principal programming language. I was so hooked on Julia that despite of being a python-ista I was looking for Julia projects!
 
 Now I knew what I had to do for the GSoC! Find a project that interests me, in Julia and hone my Julia programming. There goes January.
 
