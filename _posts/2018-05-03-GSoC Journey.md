@@ -80,9 +80,9 @@ I already read the codebase of quite a few projects and was struggling to write 
     <div class="toleft">
         <h3> April'18 </h3>
         <p> After a long wait from 27th March to 23rd April, finally, Google rolled out the names of the selected students! I checked my dashboard on GSoC's website, ever so tremblingly and Alas, my name was not there!
-        </br>
+        <br/>
         Got you! Well, I made it. I was selected in the OpenAstronomy, JuliaAstro project. April 23, 2018, will always be one of the dates that I'll always cherish.
-        </br>
+        <br/>
         Currently, I'm in the community bonding phase and loving it so far! I got a chance to interact with some the coolest coders around the world! OPEN SOURCE ROCKS!
         </p>
     </div>
