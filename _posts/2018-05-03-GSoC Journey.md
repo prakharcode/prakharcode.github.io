@@ -24,7 +24,7 @@ No, it's not easy but no, it's sure not impossible.
 
 ## Flashback
 
-Well, Flashback to the year 2017, My friend and I were walking across a pavement of my college and we see some of my fellow seniors passing by. My friend introduces me to those personalities, I add personalities cause my friend made it sound significant, he said, "Well meet them they are GSoCers". I already had some idea about GSoC so in my head I was like, 'Damn! I need to be there too'. And there, my journey begins. Journey into one of the biggest coding events for a college student.
+Well, Flashback to the year 2017, My friend and I were walking across a pavement of my college and we see some of our fellow seniors passing by. My friend introduces me to those personalities, I add personalities cause my friend made it sound quite significant, he said, "Well, meet them, they are GSoCers". I already had some idea about GSoC so in my head I was like, 'Damn! I need to be there too'. And there, my journey begins! Journey into one of the biggest coding events for a college student.
 
 ## Buffer Period
 
