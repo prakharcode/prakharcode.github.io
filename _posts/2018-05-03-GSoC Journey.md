@@ -73,7 +73,7 @@ Slog..Slog..Slog!
 ## March'18
 
 I already read the codebase of quite a few projects and was struggling to write my first PR yet. OpenAstronomy (My organization) and some other had a solid requirement of having at least one successful PR for application acceptance. I patiently took my time started making pull requests to my projects, thanks to my mentors, Helge and Mose, I was at pace with the code. I somehow managed to hit successfully a total of 6 merged PRs. If it wasn't for my mentors, I would've lost the competition before it even began. But writing the code and that too in an acceptable open source style is not sufficient. With the coding and PRs, I required a precise and well-formed proposal. Writing a proposal? puff, easy-peasy, right? NO! Writing a proposal was the most time-consuming process, took me whole March (I changed the font-size right before 10 mins of submission).
-[You can find a link to my project here with an abstract here.](https://summerofcode.withgoogle.com/projects/#5558407461863424)
+[You can find a link to my project here.](https://summerofcode.withgoogle.com/projects/#5558407461863424)
 
 
 <div class="side-by-side">
