@@ -55,7 +55,7 @@ Now I knew what I had to do for the GSoC! Find a project that interests me, in J
 </div>
 The list had the decent amount of diverse field from web-development to Astronomy. I listed what are the best projects within my reach and made a separate list of the things that I've to learn about the organization and the project itself. This part was very important and crucial, listing out everything helped me focus on the areas that I really need to improve on.[Check here for my list](https://drive.google.com/open?id=1mA0GDqvOGN-zUNgbakyJatZEu1eoniEQ).
 
-After scrolling through the whole organizations' page and 5 hours later, I had a full list and plan devised and ready to be executed. The next few steps were:
+After scrolling through the whole organizations' page and 5 hours later, I had a full list and plan devised and ready to be executed. Steps that followed were:
 - Joined the community channel whether it was on gitter, slack or an IRC.
 - Talked to the mentors and discussed with them about the plan that I would follow (remember the list).
 - Took a good check of the heat in competition. (This was another important factor, as some students were with the organizations way before and chose to apply this year only.)
