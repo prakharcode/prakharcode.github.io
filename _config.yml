@@ -57,7 +57,7 @@ email: srivastavaprakhar1@gmail.com
 authors:
     prakharsrivastava:
         name: Prakhar Srivastava
-        bio: Putting intelligence in maths
+        bio: Putting intelligence in Mathematics
         external-image: false
         picture: assets/images/profile.jpg
         twitter: prakharcode
@@ -103,4 +103,4 @@ gems:
   - jemoji
 
 jekyll-mentions:
-    base_url: https://github.com
+    base_url: https://github.com/prakharcode
