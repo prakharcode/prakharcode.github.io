@@ -8,7 +8,7 @@ tag:
 - GSoC
 - life
 category: blog
-author: prakharsrivastava
+author: Prakhar Srivastava
 description: My journey from preparation to selection in GSoC'18
 # jemoji: '<img class="emoji" title=":ramen:" alt=":ramen:" src="https://assets.github.com/images/icons/emoji/unicode/1f35c.png" height="20" width="20" align="absmiddle">'
 ---

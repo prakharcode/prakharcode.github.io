@@ -3,7 +3,7 @@
   <channel>
     <title>A blog dedicated to my GSoC experience</title>
     <description>This feed is for all the post related to GSoC journey!</description>
-    <link>http://localhost:4000</link>
+    <link>http://localhost:8000</link>
     
 		
 			
@@ -109,9 +109,13 @@
 &lt;/ul&gt;
 </description>
 					  <pubDate>2018-05-03T18:45:00+05:30</pubDate>
-					  <link>http://localhost:4000/GSoC-Journey/</link>
-					  <guid isPermaLink="true">http://localhost:4000/GSoC-Journey/</guid>
+					  <link>http://localhost:8000/GSoC-Journey/</link>
+					  <guid isPermaLink="true">http://localhost:8000/GSoC-Journey/</guid>
 				  </item>
+          <author>
++              <name>Prakhar Srivastava</name>
++              <email>srivastavaprakhar1@gmail.com</email>
++         </author>
 				
 			
 				

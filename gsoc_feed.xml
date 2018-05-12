@@ -19,8 +19,8 @@ layout: null
 					  <guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
 				  </item>
           <author>
-+              <name>{{ site.author.name }}</name>
-+              <email>{{ site.author.email }}</email>
++              <name>{{ post.author}}</name>
++              <email>{{ site.authors.prakharsrivastava.email }}</email>
 +         </author>
 				{% endif %}
 			{% endfor %}
