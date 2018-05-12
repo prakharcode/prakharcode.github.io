@@ -17,11 +17,11 @@ layout: null
 					  <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
 					  <link>{{ post.url | prepend: site.url }}</link>
 					  <guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
-				  </item>
-          <author>
-              <name>{{ post.author}}</name>
-              <email>{{ site.authors.prakharsrivastava.email }}</email>
-        </author>
+            <author>
+                <name>{{ post.author}}</name>
+                <email>{{ site.authors.prakharsrivastava.email }}</email>
+            </author>
+        </item>
 				{% endif %}
 			{% endfor %}
 		 {% endunless %}
