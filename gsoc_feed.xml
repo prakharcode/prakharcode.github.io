@@ -18,6 +18,10 @@ layout: null
 					  <link>{{ post.url | prepend: site.url }}</link>
 					  <guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
 				  </item>
+          <author>
++              <name>{{ site.author.name }}</name>
++              <email>{{ site.author.email }}</email>
++         </author>
 				{% endif %}
 			{% endfor %}
 		 {% endunless %}
