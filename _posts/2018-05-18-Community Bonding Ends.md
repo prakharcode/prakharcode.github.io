@@ -1,5 +1,5 @@
 ---
-title: "Community Bonding Period Halts"
+title: "Community Bonding Period - GSoC'18"
 layout: post
 date: 2018-05-18 18:00
 image: /assets/images/openastronomy.jpeg
@@ -29,7 +29,7 @@ I was already a part of the slack channel of Julia community and after my select
 
 # Future Plans
 
-I plan to implement the function that I've proposed in my application within the stipulated time and meet the deadline. I would also come up with a post defining every function that I implement with a code - output approach.
+I plan to implement the functions that I've proposed in my application within the stipulated time and meet the deadline. I would also come up with a post defining every function that I implement with a code - output approach.
 
 
 ### GSoC is Amazing.
