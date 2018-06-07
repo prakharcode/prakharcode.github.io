@@ -53,4 +53,4 @@ With the completion of these two function, the phase 1 task of my project will b
 
 # Next Up?
 
-After winding up my work of first phase, I'll work with my mentor to get a successful final evaluation and refine all the code written till now. I'll document all the necessary work and try to refactor as much as possible. Laying down a path for the successful completion of the second phase is also among these tasks.
+After winding up my work of the first phase, I'll work with my mentor to get a successful final evaluation and refine all the code written till now. I'll document all the necessary work and try to refactor as much as possible. Laying down a path for the successful completion of the second phase is also among these tasks.
