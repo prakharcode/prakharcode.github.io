@@ -13,7 +13,7 @@ description: This post describes the time spent in Community Bonding Period.
 ---
 # Rounding off the Phase 1
 
-As I've mentioned before that GSoC is divided into 3 phases. These phases are a medium to keep a check on the project and tap on its progress. I already laid out a well planned and sequential structure for all the phases but the amount of pressure was not anticipated. The pressure was soaring high cause I had to manage my end semester examination and GSoC project and that too in blazing heat of Delhi. Phff...
+As I've mentioned before that GSoC is divided into 3 phases with an addition of community bonding phase. These phases are a medium to keep a check on the project and tap on its progress. I already laid out a well planned and sequential structure for all the phases but the amount of pressure was not anticipated. The pressure was soaring high cause I had to manage my end semester examination and GSoC project and that too in blazing heat of Delhi. Phff...
 
 
 # All things wrong
