@@ -12,7 +12,7 @@ author: Prakhar Srivastava
 description: This post describes the time spent Phase 2 period.
 ---
 # Passed the first evaluation!
-It was the morning of 15th June, I got up and as a habit checked my emails. There it was, a mail stating, "You've passed the first evaluation!". Oh, it felt so good that I slept back again, haha! Anyway, I did my first phase work near to the deadline and it was a bit due to my exams that's why I was relieved after seeing an evaluation stating "Passed".
+It was the morning of 15th June, I got up and as a habit checked my emails. There it was, a mail stating, "You've passed the first evaluation!". Oh, it felt so good that I slept again, haha! Anyway, I did my first phase work near to the deadline and it was a bit due to my exams that's why I was relieved after seeing an evaluation stating "Passed".
 
 # Onset of Phase-2
 I am glad to inform that the proposed work of my second phase is already complete and is currently under review by my mentor. All the necessary functions in the [AstroTime.jl](https://github.com/JuliaAstro/AstroTime.jl) package are ported and soon the package will be completely independent and free of any ported code from C's liberfa. That's something fruitful, isn't it? So, let me update more on my work; I ported the following functions during this period.
