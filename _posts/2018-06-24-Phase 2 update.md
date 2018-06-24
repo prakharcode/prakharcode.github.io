@@ -9,7 +9,7 @@ tag:
 - life
 category: blog
 author: Prakhar Srivastava
-description: This post describes the time spent Phase 2 period.
+description: This post describes the time spent in Phase 2 period.
 ---
 # Passed the first evaluation!
 It was the morning of 15th June, I got up and as a habit checked my emails. There it was, a mail stating, "You've passed the first evaluation!". Oh, it felt so good that I slept again, haha! Anyway, I did my first phase work near to the deadline and it was a bit due to my exams that's why I was relieved after seeing an evaluation stating "Passed".
