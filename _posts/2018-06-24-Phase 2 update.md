@@ -1,7 +1,7 @@
 ---
 title: "Phase-2 Update - GSoC'18"
 layout: post
-date: 2018-06-08 03:00
+date: 2018-06-24 14:20
 image: /assets/images/juliaastro.png
 headerImage: true
 tag:
