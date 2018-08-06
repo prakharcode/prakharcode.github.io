@@ -14,19 +14,19 @@ description: This post describes the end and everything about GSoC.
 
 # Bidding Adieu to GSoC'18
 
-It's here, the end of the final phase of my journey in GSoC 2018 iteration. What an amazing time it was! It was an absolute enlightening and motivating in a lot of sense. I had this great opportunity to be mentored by two marvelous mentors, nifty in their craft. I would like to thank everyone involved me in this journey of mine. GSoC sits at the top of my achievements list and I'm humbled by every association with.
+It's here, the end of the final phase of my journey in GSoC 2018 iteration. What an amazing time it was! It was an absolute enlightening and motivating in a lot of sense. I had this great opportunity to be mentored by two marvelous mentors, nifty in their craft. I would like to thank everyone involved me in this journey of mine. GSoC sits at the top of my achievements list and I'm humbled by every association with it.
 
-There were moments of exasperation and intense despondence as I've to do a lot of things together and dithering would always keep me behind the deadline but this is the thing about open source, it somehow motivates you. Here, I am signing off this GSoC, with a hefty volume of code.
+There were moments of exasperation and intense despondence as I was doing a lot of things together and dithering would always keep me behind the deadline but here's a the thing about open source, it somehow motivates you. Here, I am signing off this GSoC, with a hefty volume of code.
 
 # Work done in this period
 
-I started a coding period of GSoC with a single objective of doing the porting of [AstroTime.jl](https://github.com/JuliaAstro/AstroTime.jl) to pure Julia and I worked on that only. Function by function, unit test, and docstrings, I completed the task well beforehand, a month in advance to be exact. I was so happy that despite planning ahead and getting involved in a lot of stuff, I was able to nail the project well before the deadline.
+I started a coding period of GSoC with a single objective of doing the porting of [AstroTime.jl](https://github.com/JuliaAstro/AstroTime.jl) to pure Julia and I worked on that only. Function by function, unit test, and docstrings, I completed the task well beforehand, a month in advance to be exact. I was so happy that despite planning ahead and getting involved in a lot of stuff, I was able to nail the project well before the deadline, within two phase interval.
 
-For the last period, mentors pass me on the work for another library, [AstroBase.jl](https://github.com/JuliaAstro/AstroBase.jl), this had double the amount of function than there were in the previous library, also I had only one phase compared to 2 phases that I spent previously, but all these measures evaporated yesterday when I pushed the last commit to the library and complete the task assigned to me.
+For the last period, mentors pass me on the work for another library, [AstroBase.jl](https://github.com/JuliaAstro/AstroBase.jl), this had double the amount of functions than there were in the previous library, also I had only one phase compared to 2 phases that I spent previously, but all these measures evaporated yesterday when I pushed the last commit to the library and complete the task assigned to me.
 
-This summer I wrote in 2 libraries name [AstroTime.jl](https://github.com/JuliaAstro/AstroTime.jl) and [AstroBase.jl](https://github.com/JuliaAstro/AstroBase.jl), wrote over thousands of line of code, learned open source coding style, got to learn a lot about Julia and general coding style, all this under the guidance of my excellent mentors, [Helgee Eichhorn](https://github.com/helgee) and [Mosè Giordano](https://github.com/giordano) and earned a hefty amount of money. Guess, it was the best vacation I've ever spent.
+This summer I wrote for 2 libraries namely [AstroTime.jl](https://github.com/JuliaAstro/AstroTime.jl) and [AstroBase.jl](https://github.com/JuliaAstro/AstroBase.jl), wrote over thousands of line of code, learned open source coding style, got to learn a lot about Julia and general coding style, all this under the guidance of my excellent mentors, [Helgee Eichhorn](https://github.com/helgee) and [Mosè Giordano](https://github.com/giordano) and earned a hefty amount of money. Guess, this vacation is the best vacation I've ever spent.
 
-You can find below all the relevant pull requests that made this project successful:
+You can find below, all the relevant pull requests that made this project successful:
 
 [JuliaAstro- GSoC'18 Prakhar Srivastava](https://docs.google.com/spreadsheets/d/1t8XeMAjTEU8FCKrkr7sDXgufwbjwf0vT-7kz2o3Xtd4/edit?usp=sharing)
 
