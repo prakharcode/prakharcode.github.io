@@ -1,7 +1,7 @@
 ---
 title: "It's a wrap - GSoC'18"
 layout: post
-date: 2018-07-28 22:16
+date: 2018-08-06 10:00
 image: /assets/images/juliaastro.png
 headerImage: true
 tag:
