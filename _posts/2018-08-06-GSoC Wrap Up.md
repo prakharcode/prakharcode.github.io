@@ -24,7 +24,7 @@ I started the coding period of GSoC with a single objective of doing the porting
 
 For the last period, mentors passed on the work for another library, [AstroBase.jl](https://github.com/JuliaAstro/AstroBase.jl), this had double the amount of functions than there were in the previous library, also I had only one phase compared to 2 phases that I spent previously, but all these measures evaporated yesterday, when I pushed the last commit to the library and complete the task assigned to me.
 
-This summer I wrote for 2 libraries namely [AstroTime.jl](https://github.com/JuliaAstro/AstroTime.jl) and [AstroBase.jl](https://github.com/JuliaAstro/AstroBase.jl), wrote over thousands of line of code, learned open source coding style, got to learn a lot about Julia and general coding style, all this under the guidance of my excellent mentors, [Helgee Eichhorn](https://github.com/helgee) and [Mosè Giordano](https://github.com/giordano) and earned a hefty amount of money. Guess, this vacation is the best vacation I've ever spent.
+This summer I wrote for 2 libraries namely [AstroTime.jl](https://github.com/JuliaAstro/AstroTime.jl) and [AstroBase.jl](https://github.com/JuliaAstro/AstroBase.jl), wrote over thousands of line of code, learned open source coding style, got to learn a lot about Julia and general coding style, all this under the guidance of my excellent mentors, [Helge Eichhorn](https://github.com/helgee) and [Mosè Giordano](https://github.com/giordano) and earned a hefty amount of money. Guess, this vacation is the best vacation I've ever spent.
 
 You can find below, all the relevant pull requests that made this project successful:
 
