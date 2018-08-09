@@ -455,4 +455,4 @@ Some methods are -
 6. Overfit
 7. Regularize
 
-__Part 2 coming shortly!__
+Part two will be up soon!

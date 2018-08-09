@@ -106,4 +106,8 @@ gems:
 jekyll-mentions:
     base_url: https://github.com/prakharcode
 
-highlighter: rouge
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
