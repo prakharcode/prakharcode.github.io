@@ -393,7 +393,7 @@ _Before deep learning, feature engineering used to be critical, because classica
   - What will our input data be? What are we trying to predict? we can only learn to predict something if we have available training data: for example, we can only learn to classify the sentiment of movie reviews if we have both movie reviews and sentiment annotations available. As such, data availability is usually the limiting factor at this stage (unless we have the means to pay people to collect data for we).
   - What type of problem are we facing? Is it binary classification? Multiclass classification? Scalar regression? Vector regression? Multiclass, multilabel classification? Something else, like clustering, generation, or reinforcement learning? Identifying the problem type will guide our choice of model architecture, loss function, and so on.
 
-**we can’t move to the next stage until we know what our inputs and outputs are, and what data we’ll use**
+**We can’t move to the next stage until we know what our inputs and outputs are, and what data we’ll use**
 
 _Attention_: One class of unsolvable problems we should be aware of is nonstationary problems. Suppose we’re trying to build a recommendation engine for clothing, we’re training it on one month of data (August), and we want to start generating recommendations in the winter. One big issue is that the kinds of clothes people buy change from season to season: clothes buying is a nonstationary phenomenon over the scale of a few months. What we’re trying to model changes over time. In this case, the right move is to constantly retrain our model on data from the recent past, or gather data at a timescale where the problem is stationary. For a cyclical problem like clothes buying, a few years’ worth of data will suffice to capture seasonal variation—but remember to make the time of the year an input of our model! **FEATURE ENGINEERING**
 
@@ -454,3 +454,5 @@ Some methods are -
 5. Defeat baseline
 6. Overfit
 7. Regularize
+
+__Part 2 coming shortly!__
