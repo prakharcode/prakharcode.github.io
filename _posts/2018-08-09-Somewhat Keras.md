@@ -131,7 +131,7 @@ Keras is a model-level library, providing high-level building blocks for develop
 4. Iterate on our training data by calling the fit() method of our model.
 
 
-# [Making our First Net]()
+# [Making our First Net](https://github.com/prakharcode/somewhat-keras/blob/master/Basics/first_mnist.py)
 
 ## Step 1: Defining Model Type
 There are two ways to define a model: using the **Sequential class** (only for linear stacks of layers, which is the most common network architecture by far) or the **functional API** (for directed acyclic graphs of layers, which lets we build completely arbitrary architectures)
@@ -188,7 +188,7 @@ model.fit(input_tensor, target_tensor, batch_size=128, epochs=10)
 2. How many hidden units to choose for each layer?
 3. Which activation to choose?
 
-## [Movie reviews example]()
+## [Movie reviews example](https://github.com/prakharcode/somewhat-keras/blob/master/Basics/movie_reviews.py)
 
 Binary classification problem.
 
@@ -223,7 +223,7 @@ seen before. Be sure to always monitor performance on data that is outside of
 the training set.
 
 
-## [News Classification]()
+## [News Classification](https://github.com/prakharcode/somewhat-keras/blob/master/Basics/news_classification.py)
 
 Multiclass classification problem.
 
@@ -240,7 +240,7 @@ y_train = np.array(train_labels)
 y_test = np.array(test_labels)
 ```
 The only thing this approach would change is the choice of the loss function. The loss
-function used [here](), categorical_crossentropy , expects the labels to follow
+function used [here](https://keras.io/losses/), categorical_crossentropy , expects the labels to follow
 a categorical encoding. With integer labels, we should use `sparse_categorical_crossentropy` :
 
 ```python
@@ -253,7 +253,7 @@ This new loss function is still mathematically the same as categorical_crossentr
 
 ###  Why have large intermediate layers??
 
-In the [new_classification]() project we used large intermediate layers, to avoid a architectural information bottleneck. To see what happens when we introduce an information bottleneck by having intermediate layers that are significantly less than 46-dimensional, try this:
+In the [news_classification](https://github.com/prakharcode/somewhat-keras/blob/master/Basics/news_classification.py) project we used large intermediate layers, to avoid a architectural information bottleneck. To see what happens when we introduce an information bottleneck by having intermediate layers that are significantly less than 46-dimensional, try this:
 
 ```python
 model = models.Sequential()
