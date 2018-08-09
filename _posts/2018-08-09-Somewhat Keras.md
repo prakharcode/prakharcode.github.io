@@ -2,7 +2,7 @@
 title: "Somewhat Keras Tutorial - Part 1"
 layout: post
 date: 2018-08-06 10:00
-image: /assets/images/Keras_Logo.png
+image: /assets/images/Keras_Logo.jpg
 headerImage: true
 tag:
 - Deep learning
