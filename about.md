@@ -5,11 +5,9 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 <h1 style="text-align:center">Hello World!</h1>
-A very warm welcome to this web world of mine. I'm Prakhar Srivastava, a junior year, computer science undergraduate pursuing my bachelors from [Maharaja Surajmal Institute of Technology](http://msit.in/), New Delhi. I've a deep rooted interest for mathematics and physics in general but what I absolutely love is computers and latest technology.
+A very warm welcome to this web world of mine. I'm Prakhar Srivastava, a senior year, computer science undergraduate pursuing my bachelors from [Maharaja Surajmal Institute of Technology](http://msit.in/), New Delhi. I've a deep rooted interest for mathematics and physics in general but what I absolutely love is computers and latest technology.
 
 <h2> About Blog </h2>
 
-A few months back, I started studying about Artificial Intelligence, machine learning and deep learning in particular, I completely fell in love with the field as it encompassed over all the things that interests me and furthermore it's very useful.
-I thought to start this blog with an aim to provide deeper insights and knowledge about certain ideas in the field of deep learning and share some awesome research work.
-
-Since, I'm still a learner and very new at blogging, I would highly appreciate any kind of reviews and suggestions that you can extend
+Since last couple of years, I've been in the machine learning and deep learning domain. I've explored a great deal of
+learning models and a lot of computational mathematics. After exploring these fundamentals behind AI and it's sub-disciplines, I figured there's a need of some external source of information to solve out this mystery of mathematics and learning. This blog is my effort to elucidate the nebulous of jargon existing in the field of Machine Learning.

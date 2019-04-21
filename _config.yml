@@ -6,7 +6,7 @@ bio:   |
     Share my journey of putting sense into data and understanding bare bones of deep learning
 
 # twitter summary info
-description: A webpage and blog to introduce AI to world
+description: A webpage and blog of Prakhar Srivastava
 
 # if it's an external image, update below for true
 # better with square images
@@ -50,14 +50,14 @@ github: prakharcode
 # stackoverflow: 7044681/mystackoverflow
 # quora: userquora
 # reddit: username
-#medium: prakharcode
+# medium: prakharcode
 # vimeo: myvimeo
 email: srivastavaprakhar1@gmail.com
 
 authors:
     prakharsrivastava:
         name: Prakhar Srivastava
-        bio: Putting intelligence in Mathematics
+        bio: Putting intelligence in silicone chips.
         external-image: false
         picture: assets/images/profile.jpg
         twitter: prakharcode
