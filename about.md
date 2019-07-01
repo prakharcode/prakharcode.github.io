@@ -5,7 +5,7 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 <h1 style="text-align:center">Hello World!</h1>
-A very warm welcome to this web world of mine. I'm Prakhar Srivastava, a senior year, computer science undergraduate pursuing my bachelors from [Maharaja Surajmal Institute of Technology](http://msit.in/), New Delhi. I've a deep rooted interest for mathematics and physics in general but what I absolutely love is computers and latest technology.
+A very warm welcome to this web world of mine. I'm Prakhar Srivastava, a Data Associate and Machine Learning Engineer at [Atlan](https://atlan.com). I've a deep rooted interest for mathematics and physics in general but what I absolutely love is computers and latest technology.
 
 <h2> About Blog </h2>
 
