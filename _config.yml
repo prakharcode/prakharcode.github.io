@@ -4,10 +4,10 @@ bio:   |
     Hello World!
     Welcome to my little corner on the internet!
     Share my journey of putting sense into data and understanding bare bones of deep learning.
-    Currently a Machine learning Engineer at <a href ="https://atlan.com"> Atlan. </a>
+    Currently a Machine learning Engineer at <a href ="https://atlan.com"> Atlan.</a>
 
 # twitter summary info
-description: A webpage and blog by Prakhar Srivastava
+description: Portfolio of Prakhar Srivastava and his thoughts echoing throoughout internet.
 
 # if it's an external image, update below for true
 # better with square images
@@ -18,7 +18,7 @@ picture: assets/images/profile.jpg
 # and specify source (external or local).
 resume: true
 resume-external: true
-resume-url: https://drive.google.com/file/d/1-X-SpBV3snvtwTVfsBMF8qVeS0FdNiyH/view?usp=sharing
+resume-url: https://drive.google.com/file/d/1satC4csoglmUvr1LDrbGnW0mZ6hi5XvE/view?usp=sharing
 
 url: https://prakharcode.github.io
 # your url: http://USERNAME.github.io
