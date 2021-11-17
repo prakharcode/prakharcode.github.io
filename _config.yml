@@ -3,22 +3,22 @@ name: Prakhar Srivastava
 bio:   |
     Hello World!
     Welcome to my little corner on the internet!
-    Share my journey of putting sense into data and understanding bare bones of deep learning.
-    Currently a Machine learning Engineer at <a href='https://atlan.com'>Atlan.</a>
+    Share my journey of putting sense into data and understanding bare bones of data architecture.
+    Currently a Data Engineer at <a href='https://atlan.com'>TicketSwap.</a>
 
 # twitter summary info
-description: Portfolio of Prakhar Srivastava and his thoughts echoing throoughout internet.
+description: Portfolio of Prakhar Srivastava and his thoughts echoing throughout internet.
 
 # if it's an external image, update below for true
 # better with square images
 external-image: false
-picture: assets/images/profile.jpg
+picture: assets/images/profile.jpeg
 
 # If you want to include your resume, set to true
 # and specify source (external or local).
 resume: true
 resume-external: true
-resume-url: https://drive.google.com/file/d/1satC4csoglmUvr1LDrbGnW0mZ6hi5XvE/view?usp=sharing
+resume-url: https://drive.google.com/file/d/1qZ5pziIGiyrOD2s3FRdab6rq2umVCtU1/view?usp=sharing
 
 url: https://prakharcode.github.io
 # your url: http://USERNAME.github.io
@@ -60,7 +60,7 @@ authors:
         name: Prakhar Srivastava
         bio: Putting intelligence in silicone chips.
         external-image: false
-        picture: assets/images/profile.jpg
+        picture: assets/images/profile.jpeg
         twitter: prakharcode
         email: srivastavaprakhar1@gmail.com
 
