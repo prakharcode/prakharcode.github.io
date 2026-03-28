@@ -1,4 +1,959 @@
----
-layout: page
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>prakhar@terminal:~$</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧑‍💻</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --bg-panel: #111111;
+      --bg-hover: #1a1a1a;
+      --border: #2a2a2a;
+      --border-active: #3d3d3d;
+      --green: #00ff88;
+      --green-dim: #00cc6a;
+      --green-glow: rgba(0, 255, 136, 0.15);
+      --amber: #ffb300;
+      --amber-dim: #cc8f00;
+      --cyan: #00d4ff;
+      --red: #ff4455;
+      --muted: #555;
+      --text: #c8c8c8;
+      --text-bright: #e8e8e8;
+      --text-dim: #888;
+      --cursor-color: #00ff88;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      background: #050505;
+      color: var(--text);
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow: hidden;
+    }
+
+    /* Scanlines overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.04) 2px,
+        rgba(0,0,0,0.04) 4px
+      );
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* CRT vignette */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.7) 100%);
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ─── DESKTOP ─── */
+    #desktop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 24px;
+    }
+
+    /* ─── TERMINAL WINDOW (macOS style) ─── */
+    #terminal-window {
+      display: flex;
+      flex-direction: column;
+      width: clamp(640px, 88vw, 1020px);
+      height: clamp(520px, 84vh, 840px);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow:
+        0 32px 96px rgba(0,0,0,0.9),
+        0 0 0 1px rgba(255,255,255,0.07),
+        inset 0 0 0 1px rgba(255,255,255,0.03);
+      position: relative;
+    }
+
+    /* ─── macOS TITLEBAR ─── */
+    #titlebar {
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      height: 38px;
+      min-height: 38px;
+      background: #1c1c1c;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      position: relative;
+      user-select: none;
+    }
+
+    .tb-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1;
+    }
+
+    .tb-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      cursor: default;
+    }
+    .tb-dot.red    { background: #ff5f57; box-shadow: 0 0 4px rgba(255,95,87,0.5); }
+    .tb-dot.amber  { background: #febc2e; box-shadow: 0 0 4px rgba(254,188,46,0.5); }
+    .tb-dot.green  { background: #28c840; box-shadow: 0 0 4px rgba(40,200,64,0.5); }
+
+    #titlebar-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── VIM TABLINE ─── */
+    #tabline {
+      display: flex;
+      align-items: center;
+      background: #181818;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      height: 22px;
+      overflow-x: auto;
+    }
+
+    #tabline::-webkit-scrollbar { height: 0; }
+
+    .vim-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 10px;
+      height: 100%;
+      font-size: 12px;
+      font-family: inherit;
+      background: #181818;
+      color: #555;
+      cursor: pointer;
+      white-space: nowrap;
+      user-select: none;
+      border: none;
+      outline: none;
+    }
+
+    /* │ separator between tabs */
+    .vim-tab + .vim-tab::before {
+      content: '│';
+      color: #333;
+      margin-right: 10px;
+      font-size: 13px;
+    }
+
+    .vim-tab .tab-num { color: #3a3a3a; }
+
+    /* Active: inverted — the classic vim TabLineSel look */
+    .vim-tab.active {
+      background: var(--bg);
+      color: var(--text-bright);
+    }
+
+    .vim-tab.active .tab-num { color: var(--text-dim); }
+
+    .vim-tab:hover:not(.active) { color: #888; }
+
+    .tabline-fill {
+      flex: 1;
+      height: 100%;
+      background: #181818;
+    }
+
+    /* ─── CONTENT PANE ─── */
+    #content {
+      flex: 1;
+      overflow-y: auto;
+      background: var(--bg);
+      position: relative;
+    }
+
+    .page {
+      display: none;
+      padding: 36px 44px;
+      min-height: 100%;
+      animation: fadeIn 0.15s ease;
+    }
+
+    .page.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(3px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── VIM STATUSLINE ─── */
+    #statusline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3px 12px;
+      background: var(--green);
+      font-size: 11px;
+      color: var(--bg);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      flex-shrink: 0;
+      min-height: 22px;
+    }
+
+    .sl-left { display: flex; align-items: center; gap: 0; }
+    .sl-mode {
+      background: var(--bg);
+      color: var(--green);
+      padding: 0 8px;
+      margin-right: 8px;
+      font-weight: 700;
+    }
+
+    .sl-right { display: flex; gap: 16px; color: rgba(0,0,0,0.55); }
+    .sl-right strong { color: var(--bg); }
+    .sl-right #clock { color: rgba(0,0,0,0.75); font-weight: 700; letter-spacing: 0.05em; }
+
+    /* ─── COMMAND LINE (inside window) ─── */
+    #cmdline {
+      display: none;
+      position: absolute;
+      bottom: 22px; /* above statusline */
+      left: 0;
+      right: 0;
+      background: var(--bg-panel);
+      border-top: 1px solid var(--green);
+      padding: 5px 14px;
+      font-size: 13px;
+      z-index: 50;
+    }
+
+    #cmdline.show { display: flex; align-items: center; gap: 8px; }
+    #cmdline-sym { color: var(--green); font-weight: 700; }
+    #cmdline-input {
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--text-bright);
+      font-family: inherit;
+      font-size: 13px;
+      flex: 1;
+      caret-color: var(--green);
+    }
+
+    /* ─── TOAST (inside window) ─── */
+    #toast {
+      position: absolute;
+      top: 54px;
+      right: 16px;
+      background: var(--bg-panel);
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 12px;
+      padding: 7px 14px;
+      z-index: 60;
+      opacity: 0;
+      transform: translateX(12px);
+      transition: all 0.18s;
+      pointer-events: none;
+    }
+
+    #toast.show { opacity: 1; transform: translateX(0); }
+    #toast.error { border-color: var(--red); color: var(--red); }
+
+    /* ─── PROMPT LINE ─── */
+    .prompt {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      font-size: 13px;
+    }
+
+    .prompt-user { color: var(--green); font-weight: 600; }
+    .prompt-at { color: var(--text-dim); }
+    .prompt-host { color: var(--cyan); }
+    .prompt-path { color: var(--amber); }
+    .prompt-sym { color: var(--green); }
+
+    /* ─── PAGE: HOME ─── */
+    .home-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+
+    .avatar-wrap { position: relative; }
+
+    .avatar-frame {
+      width: 160px;
+      height: 160px;
+      border: 1px solid var(--green);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--green-glow), transparent 60%);
+      z-index: 1;
+    }
+
+    .avatar-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(30%) contrast(1.1);
+      display: block;
+    }
+
+    .avatar-placeholder {
+      width: 160px;
+      height: 160px;
+      border: 1px solid var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      background: var(--bg-panel);
+      color: var(--green);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--green-glow), transparent 60%);
+    }
+
+    .avatar-corner {
+      position: absolute;
+      width: 10px; height: 10px;
+      border-color: var(--green);
+      border-style: solid;
+    }
+    .avatar-corner.tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+    .avatar-corner.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+    .avatar-corner.bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+    .avatar-corner.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+    .avatar-label {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .home-info h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .home-info h1 .accent { color: var(--green); }
+
+    .home-tagline {
+      color: var(--amber);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .home-desc {
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 24px;
+    }
+
+    .home-desc .hl  { color: var(--green); }
+    .home-desc .hl2 { color: var(--cyan); }
+    .home-desc .hl3 { color: var(--amber); }
+
+    .links-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border-active);
+      color: var(--text-dim);
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 12px;
+      transition: all 0.15s;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .link-btn:hover {
+      border-color: var(--green);
+      color: var(--green);
+      background: var(--green-glow);
+    }
+
+    .link-btn .icon { font-size: 13px; }
+
+    .stats-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-val {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+
+    /* ─── SECTION HEADINGS ─── */
+    .sec-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .sec-heading h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-bright);
+    }
+
+    .sec-heading .line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .sec-heading .tag {
+      font-size: 11px;
+      color: var(--green);
+      background: var(--green-glow);
+      border: 1px solid rgba(0,255,136,0.3);
+      padding: 2px 8px;
+    }
+
+    /* ─── ABOUT PAGE ─── */
+    .about-block { margin-bottom: 28px; }
+
+    .about-block h3 {
+      color: var(--amber);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .about-block p {
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.8;
+      max-width: 640px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .skill-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .skill-tag .dot { color: var(--green); }
+
+    .timeline {
+      border-left: 1px solid var(--border);
+      padding-left: 20px;
+      margin-left: 4px;
+    }
+
+    .timeline-item { position: relative; margin-bottom: 20px; }
+
+    .timeline-item::before {
+      content: '◆';
+      position: absolute;
+      left: -26px;
+      top: 2px;
+      font-size: 8px;
+      color: var(--green);
+    }
+
+    .timeline-date    { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+    .timeline-role    { font-size: 13px; color: var(--text-bright); font-weight: 500; }
+    .timeline-company { font-size: 12px; color: var(--cyan); }
+    .timeline-desc    { font-size: 12px; color: var(--text-dim); margin-top: 4px; line-height: 1.6; }
+
+    /* ─── BLINKING CURSOR ─── */
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 14px;
+      background: var(--green);
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-active); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--green-dim); }
+
+    /* ─── HELP OVERLAY ─── */
+    #help-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #help-overlay.show { display: flex; }
+
+    .help-box {
+      border: 1px solid var(--green);
+      background: var(--bg-panel);
+      padding: 32px 40px;
+      min-width: 400px;
+      border-radius: 4px;
+    }
+
+    .help-box h3 {
+      color: var(--green);
+      font-size: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .help-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      padding: 5px 0;
+      font-size: 12px;
+    }
+
+    .help-key  { color: var(--amber); font-weight: 600; }
+    .help-desc { color: var(--text-dim); }
+
+    .help-close {
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ─── CLAUDE BADGE ─── */
+    #claude-badge {
+      position: fixed;
+      bottom: 14px;
+      right: 18px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      z-index: 998;
+      transition: color 0.15s;
+      letter-spacing: 0.03em;
+    }
+
+    #claude-badge:hover { color: var(--text-dim); }
+    #claude-badge svg { opacity: 0.5; }
+    #claude-badge:hover svg { opacity: 0.8; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 680px) {
+      #terminal-window { width: 100%; height: 100%; border-radius: 0; }
+      #desktop { padding: 0; }
+      .home-grid { grid-template-columns: 1fr; }
+      .page { padding: 20px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="desktop">
+  <div id="terminal-window">
+
+    <!-- macOS TITLEBAR -->
+    <div id="titlebar">
+      <div class="tb-dots">
+        <div class="tb-dot red"></div>
+        <div class="tb-dot amber"></div>
+        <div class="tb-dot green"></div>
+      </div>
+      <span id="titlebar-center"><!-- filled by JS --></span>
+    </div>
+
+    <!-- VIM TABLINE -->
+    <div id="tabline">
+      <!-- dynamically populated -->
+      <div class="tabline-fill"></div>
+    </div>
+
+    <!-- CONTENT — pages rendered by JS from config.js -->
+    <div id="content">
+      <section class="page active" data-page="home"></section>
+      <section class="page"        data-page="about"></section>
+    </div><!-- /#content -->
+
+    <!-- VIM STATUSLINE -->
+    <div id="statusline">
+      <div class="sl-left">
+        <span class="sl-mode" id="mode-label">NORMAL</span>
+        <span id="current-page-label">home</span>
+      </div>
+      <div class="sl-right">
+        <span id="clock">00:00:00</span>
+        <span>j/k <strong>scroll</strong></span>
+        <span>H/L <strong>tabs</strong></span>
+        <span>? <strong>help</strong></span>
+        <span id="page-counter">1/3</span>
+      </div>
+    </div>
+
+    <!-- COMMAND LINE (absolute, inside window) -->
+    <div id="cmdline">
+      <span id="cmdline-sym">:</span>
+      <input id="cmdline-input" type="text" autocomplete="off" spellcheck="false" />
+    </div>
+
+    <!-- TOAST (absolute, inside window) -->
+    <div id="toast"></div>
+
+  </div><!-- /#terminal-window -->
+</div><!-- /#desktop -->
+
+<a id="claude-badge" href="https://claude.ai" target="_blank">made with claude</a>
+
+<!-- HELP OVERLAY (fixed, full screen) -->
+<div id="help-overlay">
+  <div class="help-box">
+    <h3>&#9000;  keybindings</h3>
+    <div class="help-row"><div class="help-key">j / k</div><div class="help-desc">scroll line</div></div>
+    <div class="help-row"><div class="help-key">D / U</div><div class="help-desc">scroll half-page</div></div>
+    <div class="help-row"><div class="help-key">L / H</div><div class="help-desc">next / previous tab</div></div>
+    <div class="help-row"><div class="help-key">gt / gT</div><div class="help-desc">next / previous tab</div></div>
+    <div class="help-row"><div class="help-key">g g</div><div class="help-desc">scroll to top</div></div>
+    <div class="help-row"><div class="help-key">G</div><div class="help-desc">scroll to bottom</div></div>
+    <div class="help-row"><div class="help-key">1–2</div><div class="help-desc">jump to tab by number</div></div>
+    <div class="help-row"><div class="help-key">:</div><div class="help-desc">open command line</div></div>
+    <div class="help-row"><div class="help-key">?</div><div class="help-desc">toggle this help</div></div>
+    <div class="help-row"><div class="help-key">Esc</div><div class="help-desc">close overlay / cancel</div></div>
+    <div class="help-close">press <span style="color:var(--amber)">Esc</span> or <span style="color:var(--amber)">?</span> to close</div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script>
+  // ════════════════════════════════════════════
+  //  RENDER HELPERS
+  // ════════════════════════════════════════════
+
+  // Convert [text](color) markers in bio to <span> highlights
+  function renderBio(text) {
+    const colorMap = { green: 'hl', cyan: 'hl2', amber: 'hl3' };
+    return text.replace(/\[([^\]]+)\]\((\w+)\)/g, (_, t, c) =>
+      `<span class="${colorMap[c] || ''}">${t}</span>`
+    );
+  }
+
+  function prompt(path, cmd) {
+    return `<div class="prompt">
+      <span class="prompt-user">${CONFIG.handle}</span><span class="prompt-at">@</span><span class="prompt-host">${CONFIG.host}</span><span class="prompt-at">:</span><span class="prompt-path">${path}</span><span class="prompt-sym">$</span>
+      <span style="color:var(--text-dim)">${cmd}</span>
+      <span class="cursor"></span>
+    </div>`;
+  }
+
+  function secHeading(title, tag) {
+    return `<div class="sec-heading"><h2>${title}</h2><div class="line"></div><div class="tag">${tag}</div></div>`;
+  }
+
+  // ─── Home
+  function renderHome(el) {
+    const linksHtml = CONFIG.links.map(l =>
+      `<a class="link-btn" href="${l.url}" target="_blank"><span class="icon">${l.icon}</span> ${l.label}</a>`
+    ).join('');
+    const statsHtml = CONFIG.stats.map(s =>
+      `<div class="stat-item"><div class="stat-val">${s.val}</div><div class="stat-label">${s.label}</div></div>`
+    ).join('');
+    el.innerHTML = `
+      ${prompt('~', 'cat profile.md')}
+      <div class="home-grid">
+        <div class="avatar-wrap">
+          <div class="avatar-frame">
+            <img src="https://avatars.githubusercontent.com/${CONFIG.handle}" alt="${CONFIG.name.first}" />
+            <div class="avatar-corner tl"></div><div class="avatar-corner tr"></div>
+            <div class="avatar-corner bl"></div><div class="avatar-corner br"></div>
+          </div>
+          <div class="avatar-label"># ${CONFIG.handle}.png</div>
+        </div>
+        <div class="home-info">
+          <h1><span class="accent">${CONFIG.name.first}</span> ${CONFIG.name.last}</h1>
+          <div class="home-tagline">&gt; ${CONFIG.tagline}</div>
+          <p class="home-desc">${renderBio(CONFIG.bio)}</p>
+          <div class="links-row">${linksHtml}</div>
+        </div>
+      </div>
+      <div class="stats-row">${statsHtml}</div>`;
+  }
+
+  // ─── About
+  function renderAbout(el) {
+    const stackHtml = CONFIG.about.stack.map(s =>
+      `<div class="skill-tag"><span class="dot">▸</span> ${s}</div>`
+    ).join('');
+    const expHtml = CONFIG.about.experience.map(e =>
+      `<div class="timeline-item">
+        <div class="timeline-date">${e.date}</div>
+        <div class="timeline-role">${e.role}</div>
+        <div class="timeline-company">${e.company}</div>
+        <div class="timeline-desc">${e.desc}</div>
+      </div>`
+    ).join('');
+    el.innerHTML = `
+      ${prompt('~/about', 'cat README.md')}
+      ${secHeading('./about', 'README.md')}
+      <div class="about-block"><h3># Bio</h3><p>${CONFIG.about.bio}</p></div>
+      <div class="about-block"><h3># Stack</h3><div class="skills-grid">${stackHtml}</div></div>
+      <div class="about-block"><h3># Experience</h3><div class="timeline">${expHtml}</div></div>`;
+  }
+
+  // ─── Contact
+  // ─── Boot renders
+  renderHome (document.querySelector('[data-page="home"]'));
+  renderAbout(document.querySelector('[data-page="about"]'));
+
+  // ─── Titlebar
+  document.getElementById('titlebar-center').textContent =
+    `${CONFIG.handle}@${CONFIG.host}: ~/portfolio`;
+
+  // ════════════════════════════════════════════
+  //  NAVIGATION
+  // ════════════════════════════════════════════
+  const PAGES = [
+    { id: 'home',  label: 'home',  key: '1' },
+    { id: 'about', label: 'about', key: '2' },
+  ];
+
+  const COMMANDS = {
+    home:  () => goTo(0),
+    about: () => goTo(1),
+    help:  () => toggleHelp(),
+    q:       () => showToast('no write since last change (add :w!)'),
+    'q!':    () => showToast('cannot quit a terminal portfolio 😄'),
+    w:       () => showToast("E21: Cannot make changes, 'Modifiable' is off", true),
+    tabn:    () => goTo(current + 1),
+    tabp:    () => goTo(current - 1),
+  };
+
+  let current = 0;
+  let gPending = false, gTimer = null, gBuffer = '';
+
+  const pages     = document.querySelectorAll('.page');
+  const tabline   = document.getElementById('tabline');
+  const modeLabel = document.getElementById('mode-label');
+  const pageLbl   = document.getElementById('current-page-label');
+  const counter   = document.getElementById('page-counter');
+  const fill      = tabline.querySelector('.tabline-fill');
+
+  // ─── Build vim tabline
+  PAGES.forEach((p, i) => {
+    const tab = document.createElement('button');
+    tab.className = 'vim-tab' + (i === 0 ? ' active' : '');
+    tab.dataset.index = i;
+    tab.innerHTML = `<span class="tab-num">${p.key}</span> ${p.label}`;
+    tab.addEventListener('click', () => goTo(i));
+    tabline.insertBefore(tab, fill);
+  });
+
+  function goTo(idx) {
+    if (idx < 0 || idx >= PAGES.length) return;
+    pages[current].classList.remove('active');
+    tabline.querySelectorAll('.vim-tab')[current].classList.remove('active');
+    current = idx;
+    pages[current].classList.add('active');
+    document.getElementById('content').scrollTop = 0;
+    tabline.querySelectorAll('.vim-tab')[current].classList.add('active');
+    pageLbl.textContent = PAGES[current].label;
+    counter.textContent = `${current + 1}/${PAGES.length}`;
+  }
+
+  // ─── Clock
+  function updateClock() {
+    document.getElementById('clock').textContent =
+      new Date().toLocaleTimeString('en-GB', { hour12: false });
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // ─── Help overlay
+  const helpOverlay = document.getElementById('help-overlay');
+  function toggleHelp() { helpOverlay.classList.toggle('show'); }
+  helpOverlay.addEventListener('click', (e) => { if (e.target === helpOverlay) toggleHelp(); });
+
+  // ─── Toast
+  let toastTimer;
+  function showToast(msg, error = false) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.toggle('error', error);
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { t.classList.remove('show', 'error'); }, 2500);
+  }
+
+  // ─── Command line
+  const cmdline  = document.getElementById('cmdline');
+  const cmdInput = document.getElementById('cmdline-input');
+  let cmdMode = false;
+
+  function openCmd() {
+    cmdMode = true;
+    cmdline.classList.add('show');
+    cmdInput.value = '';
+    cmdInput.focus();
+    modeLabel.textContent = 'COMMAND';
+  }
+
+  function closeCmd() {
+    cmdMode = false;
+    cmdline.classList.remove('show');
+    modeLabel.textContent = 'NORMAL';
+  }
+
+  function execCmd(raw) {
+    const cmd = raw.trim().toLowerCase();
+    closeCmd();
+    if (!cmd) return;
+    const num = parseInt(cmd);
+    if (!isNaN(num) && num >= 1 && num <= PAGES.length) { goTo(num - 1); return; }
+    const pi = PAGES.findIndex(p => p.id === cmd || p.label === cmd);
+    if (pi !== -1) { goTo(pi); return; }
+    if (COMMANDS[cmd]) { COMMANDS[cmd](); return; }
+    showToast(`E492: Not an editor command: ${cmd}`, true);
+  }
+
+  cmdInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') execCmd(cmdInput.value);
+    if (e.key === 'Escape') closeCmd();
+  });
+
+  // ─── Global keyboard
+  document.addEventListener('keydown', (e) => {
+    if (cmdMode) return;
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    const k = e.key;
+
+    if (k === '?') { e.preventDefault(); toggleHelp(); return; }
+    if (helpOverlay.classList.contains('show')) {
+      if (k === 'Escape') toggleHelp();
+      return;
+    }
+
+    if (k === ':') { e.preventDefault(); openCmd(); return; }
+    if (k === 'Escape') { gBuffer = ''; gPending = false; return; }
+
+    // j / k — scroll content (vim line scroll)
+    // D / U — scroll content half-page (vim Ctrl-D / Ctrl-U style)
+    const contentEl = document.getElementById('content');
+    if (k === 'j' || k === 'ArrowDown') { e.preventDefault(); contentEl.scrollBy({ top:  60,                              behavior: 'smooth' }); return; }
+    if (k === 'k' || k === 'ArrowUp'  ) { e.preventDefault(); contentEl.scrollBy({ top: -60,                              behavior: 'smooth' }); return; }
+    if (k === 'D')                       { e.preventDefault(); contentEl.scrollBy({ top:  contentEl.clientHeight / 2,     behavior: 'smooth' }); return; }
+    if (k === 'U')                       { e.preventDefault(); contentEl.scrollBy({ top: -contentEl.clientHeight / 2,     behavior: 'smooth' }); return; }
+
+    // H / L — tab navigation (like window switching in vim)
+    if (k === 'H') { e.preventDefault(); goTo(current - 1); return; }
+    if (k === 'L') { e.preventDefault(); goTo(current + 1); return; }
+
+    // G — scroll to bottom
+    if (k === 'G') { e.preventDefault(); contentEl.scrollTo({ top: contentEl.scrollHeight, behavior: 'smooth' }); return; }
+
+    // g-prefix combos: gg (top), gt, gT
+    if (k === 'g') {
+      if (gPending) {
+        clearTimeout(gTimer);
+        gPending = false; gBuffer = '';
+        contentEl.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        gPending = true; gBuffer = 'g';
+        gTimer = setTimeout(() => { gPending = false; gBuffer = ''; }, 600);
+      }
+      return;
+    }
+    if (gPending && k === 't') { clearTimeout(gTimer); gPending = false; gBuffer = ''; goTo(current + 1); return; }
+    if (gPending && k === 'T') { clearTimeout(gTimer); gPending = false; gBuffer = ''; goTo(current - 1); return; }
+
+    // Number jump
+    const n = parseInt(k);
+    if (!isNaN(n) && n >= 1 && n <= PAGES.length) { goTo(n - 1); return; }
+  });
+</script>
+</body>
+</html>
