@@ -844,6 +844,21 @@
     counter.textContent = `${current + 1}/${PAGES.length}`;
   }
 
+  // ─── Vimium detection
+  // Vimium injects DOM elements with "vimium" in their id/class shortly after load.
+  // We watch for them and warn the user before their keybindings shadow ours.
+  function checkForVimium() {
+    if (document.querySelector('[id*="vimium"], [class*="vimium"]')) {
+      showToast('Vimium detected — add this site to its exclusion list for full keybinding support', true, 7000);
+      vimiumObserver.disconnect();
+    }
+  }
+
+  const vimiumObserver = new MutationObserver(checkForVimium);
+  vimiumObserver.observe(document.body, { childList: true, subtree: true });
+  // also check after 1s in case Vimium injected before our script ran
+  setTimeout(checkForVimium, 1000);
+
   // ─── Clock
   function updateClock() {
     document.getElementById('clock').textContent =
@@ -859,13 +874,13 @@
 
   // ─── Toast
   let toastTimer;
-  function showToast(msg, error = false) {
+  function showToast(msg, error = false, duration = 2500) {
     const t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.toggle('error', error);
     t.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => { t.classList.remove('show', 'error'); }, 2500);
+    toastTimer = setTimeout(() => { t.classList.remove('show', 'error'); }, duration);
   }
 
   // ─── Command line
