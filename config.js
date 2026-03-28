@@ -73,12 +73,11 @@ Active Apache Airflow contributor. Delta Lake nerd. I write about this stuff on 
     ],
   },
 
-  // ── Contact page
-  // accent: 'green' | 'cyan' | 'amber' | null (default text color)
+  // ── Links (shown as buttons on home page)
   links: [
     { label: 'LinkedIn',     icon: 'in', url: 'https://linkedin.com/in/prakharcode'  },
     { label: 'GitHub',       icon: '🧑‍💻',  url: 'https://github.com/prakharcode'       },
     { label: 'Substack',     icon: '📚',  url: 'https://substack.com/@prakharcode'    },
-    { label: 'Second Brain', icon: '🧠', url: 'https://YOUR_OBSIDIAN_PUBLISH_URL'    },
+    { label: 'Second Brain', icon: '🧠', url: 'https://publish.obsidian.md/prakhar-second-brain/' },
   ],
 };
