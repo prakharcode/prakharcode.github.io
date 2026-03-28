@@ -5,7 +5,7 @@ const CONFIG = {
 
   // ── Terminal identity
   handle : 'prakharcode',
-  host   : 'terminal',
+  host   : 'full-stack-data',
 
   // ── Home page
   name    : { first: 'Prakhar', last: 'Srivastava' },
