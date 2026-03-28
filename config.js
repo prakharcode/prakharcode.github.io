@@ -21,9 +21,9 @@ Open-source contributor. Mechanical keyboard enthusiast.`,
 
   stats: [
     { val: '5+', label: 'yrs. data eng.'  },
-    { val: '2',  label: 'PyCon talks'     },
-    { val: '∞',  label: 'coffee / day'    },
-    { val: '1',  label: 'split kbd build' },
+    { val: '5',  label: 'PyCon talks'     },
+    { val: '0',  label: 'coffee / day'    },
+    { val: '1',  label: 'kbd build' },
   ],
 
   // ── About page
