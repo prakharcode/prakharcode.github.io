@@ -81,5 +81,6 @@ Active Apache Airflow contributor. Delta Lake nerd. I write about this stuff on 
     { label: 'GitHub',       icon: '🧑‍💻',  url: 'https://github.com/prakharcode'       },
     { label: 'Substack',     icon: '📚',  url: 'https://substack.com/@prakharcode'    },
     { label: 'Second Brain', icon: '🧠', url: 'https://publish.obsidian.md/prakhar-second-brain/' },
+    { label: 'Résumé',       icon: '📄', url: 'Prakhar_Srivastava_CV.pdf', download: true },
   ],
 };

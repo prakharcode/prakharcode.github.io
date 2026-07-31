@@ -776,7 +776,9 @@
   // ─── Home
   function renderHome(el) {
     const linksHtml = CONFIG.links.map(l =>
-      `<a class="link-btn" href="${l.url}" target="_blank"><span class="icon">${l.icon}</span> ${l.label}</a>`
+      l.download
+        ? `<a class="link-btn" href="${l.url}" download><span class="icon">${l.icon}</span> ${l.label}</a>`
+        : `<a class="link-btn" href="${l.url}" target="_blank"><span class="icon">${l.icon}</span> ${l.label}</a>`
     ).join('');
     const statsHtml = CONFIG.stats.map(s =>
       `<div class="stat-item"><div class="stat-val">${s.val}</div><div class="stat-label">${s.label}</div></div>`

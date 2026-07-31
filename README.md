@@ -38,6 +38,12 @@ links: [
 ],
 ```
 
+Add `download: true` to make a link download a bundled file (e.g. a PDF résumé) instead of opening in a new tab:
+
+```js
+{ label: 'Résumé', icon: '📄', url: 'Prakhar_Srivastava_CV.pdf', download: true },
+```
+
 ### Stats strip
 
 ```js
